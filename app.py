@@ -25,6 +25,9 @@ def handle_my_custom_event1( json1 ):
   json1['bot']='UniBot'
   print( 'recived my event: ' + str(json1 ))
   socketio.emit( 'my response', json1, callback=messageRecived )
+  
+  answer = MessagingResponse()
+  answer.message(answer)
   return str(json1)
 
 if __name__ == '__main__':
