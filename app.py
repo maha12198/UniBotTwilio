@@ -26,22 +26,22 @@ def handle_my_custom_event1( json1 ):
   print( 'recived my event: ' + str(json1 ))
   socketio.emit( 'my response', json1, callback=messageRecived )
   
-  
+
 
 @app.route("/sms", methods=['POST'])
-def sms_reply():
-    """Respond to incoming calls with a simple text message."""
+def sms():
     # Fetch the message
-	  message = json1['message']
-	  answer=model.chat(message)
-	  json1['answer'] = answer
-	  json1['bot']='UniBot'
-	  print( 'recived my event: ' + str(json1 ))
-	  socketio.emit( 'my response', json1, callback=messageRecived )
-	  
-	  answer = MessagingResponse()
-	  answer.message(answer)
-	  return str(json1)
+      incoming_msg = request.values.get('Body', '').lower()
+      #message = json1['message']
+      answer=model.chat(incoming_msg)
+
+      resp = MessagingResponse()
+      resp.message(answer)
+
+      answer=model.chat(message)
+
+      return str(answer)
+
 
 
 if __name__ == '__main__':
