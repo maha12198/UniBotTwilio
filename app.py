@@ -6,16 +6,12 @@ app = Flask(__name__)
 
 @app.route("/sms", methods=['POST'])
 def sms():
- 
-    # Fetch the message
-      resp = MessagingResponse()
-      incoming_msg = request.values.get('Body')
-	  #message = json1['message']
-	  answer=model.chat(incoming_msg)
-	  
-      resp.message(answer)
-
-	  return str(resp)
+	resp = MessagingResponse()
+	incoming_msg = request.values.get('Body')
+	import model      
+	answer=model.chat(incoming_msg)  
+	resp.message(answer)
+	return str(resp)
 
 
 if __name__ == '__main__':
