@@ -257,7 +257,8 @@ h3 {
 
           $( 'main.msger-chat' ).append( '<div class="msg left-msg"><div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"></div><div class="msg-bubble"><div class="msg-info"><div class="msg-info-name">UniBot</div></div><div class="msg-text">'
             +msg.answer+'</div></div></div>' )
-
+          
+		  $(".msger-chat").stop().animate({ scrollTop: $(".msger-chat")[0].scrollHeight}, 1000);
         
       } )
 
