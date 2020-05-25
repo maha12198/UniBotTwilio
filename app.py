@@ -4,7 +4,7 @@ import model
 
 app = Flask(__name__)
 
-@app.route("/sms", methods=['POST'])
+@app.route("/", methods=['POST'])
 def sms():
     print('hh-') 
     incoming_msg = request.values.get('Body')
