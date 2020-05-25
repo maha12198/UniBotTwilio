@@ -13,9 +13,7 @@ def sms():
     print('b-') 
     answer=model.chat(incoming_msg)
     print('c-')  
-    msg=resp.message()
-    msg.Body(answer)
-    print('d-') 
+    resp.message(answer)
     return str(resp)
 
 if __name__ == '__main__':
