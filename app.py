@@ -6,13 +6,9 @@ app = Flask(__name__)
 
 @app.route("/", methods=['POST'])
 def sms():
-    print('hh-') 
     incoming_msg = request.values.get('Body')
-    print('a-') 
-    resp = MessagingResponse()  
-    print('b-') 
+    resp = MessagingResponse()
     answer=model.chat(incoming_msg)
-    print('c-')  
     resp.message(answer)
     return str(resp)
 
